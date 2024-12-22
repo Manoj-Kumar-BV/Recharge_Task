@@ -19,6 +19,8 @@
     const amount = urlParams.get('amount') * 100; // Amount in paise
     const sim = urlParams.get('sim');
     const name = urlParams.get('name');
+    const mobile = urlParams.get('mobile');
+    const email = urlParams.get('email');
 
     var options = {
       "key": "rzp_test_f4vcAPoh0RDZfi", // Replace with your Razorpay key
@@ -28,12 +30,12 @@
       "description": "Test Transaction",
       "handler": function (response){
           alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-          window.location.href = `success.html?transaction_id=${response.razorpay_payment_id}&amount=${amount / 100}&sim=${sim}&name=${name}`;
+          window.location.href = `success.html?transaction_id=${response.razorpay_payment_id}&amount=${amount / 100}&sim=${sim}&name=${name}&mobile=${mobile}&email=${email}`;
       },
       "prefill": {
           "name": name,
-          "email": "",
-          "contact": ""
+          "email": email,
+          "contact": mobile
       },
       "theme": {
           "color": "#3399cc"
