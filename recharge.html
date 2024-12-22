@@ -16,16 +16,25 @@
     <p>Amount: <span id="amount"></span></p>
     <form action="payment.html" method="GET">
       <input type="hidden" id="amountInput" name="amount">
+      <input type="hidden" id="nameInput" name="name">
+      <input type="hidden" id="simInput" name="sim">
       <button type="submit">Pay with Razorpay</button>
     </form>
   </div>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    document.getElementById('mobile').textContent = urlParams.get('mobile');
-    document.getElementById('email').textContent = urlParams.get('email');
-    document.getElementById('sim').textContent = urlParams.get('sim');
-    document.getElementById('amount').textContent = urlParams.get('amount');
-    document.getElementById('amountInput').value = urlParams.get('amount');
+    const mobile = urlParams.get('mobile');
+    const email = urlParams.get('email');
+    const sim = urlParams.get('sim');
+    const amount = urlParams.get('amount');
+
+    document.getElementById('mobile').textContent = mobile;
+    document.getElementById('email').textContent = email;
+    document.getElementById('sim').textContent = sim;
+    document.getElementById('amount').textContent = amount;
+    document.getElementById('amountInput').value = amount;
+    document.getElementById('nameInput').value = mobile;
+    document.getElementById('simInput').value = sim;
   </script>
 </body>
 </html>

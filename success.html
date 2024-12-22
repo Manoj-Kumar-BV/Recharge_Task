@@ -12,7 +12,29 @@
         <h1>Recharge Successful!</h1>
         <p>Your recharge has been completed successfully.</p>
         <p>Thank you for using our service!</p>
+        <button onclick="downloadSlip()">Download Recharge Slip</button>
         <a href="index.html" class="btn">Go to Login</a>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        function downloadSlip() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name') || 'N/A';
+            const amount = urlParams.get('amount') || 'N/A';
+            const transactionId = urlParams.get('transaction_id') || 'N/A';
+            const sim = urlParams.get('sim') || 'N/A';
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text("Recharge Slip", 10, 10);
+            doc.text(`Name: ${name}`, 10, 20);
+            doc.text(`Amount: ${amount}`, 10, 30);
+            doc.text(`Transaction ID: ${transactionId}`, 10, 40);
+            doc.text(`SIM: ${sim}`, 10, 50);
+
+            doc.save('recharge_slip.pdf');
+        }
+    </script>
 </body>
 </html>
