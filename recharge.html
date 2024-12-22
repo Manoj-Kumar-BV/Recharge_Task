@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recharge</title>
+  <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Recharge</h1>
+    <p>Mobile: <span id="mobile"></span></p>
+    <p>Email: <span id="email"></span></p>
+    <p>SIM: <span id="sim"></span></p>
+    <p>Amount: <span id="amount"></span></p>
+    <form action="payment.html" method="GET">
+      <input type="hidden" id="amountInput" name="amount">
+      <button type="submit">Pay with Razorpay</button>
+    </form>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('mobile').textContent = urlParams.get('mobile');
+    document.getElementById('email').textContent = urlParams.get('email');
+    document.getElementById('sim').textContent = urlParams.get('sim');
+    document.getElementById('amount').textContent = urlParams.get('amount');
+    document.getElementById('amountInput').value = urlParams.get('amount');
+  </script>
+</body>
+</html>
