@@ -6,16 +6,6 @@ This project is a simple web portal for mobile recharge with Razorpay integratio
 
 You can access the hosted project [here](https://manoj-kumar-bv.github.io/Recharge_Task/).
 
-## Project Structure
-Recharge_Task/ 
-    ├── index.html 
-    ├── recharge.html 
-    ├── payment.html 
-    ├── success.html 
-    ├── public/ 
-        │ └── css/ 
-        │ └── styles.css
-
 
 ## Pages
 
