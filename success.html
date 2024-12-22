@@ -13,7 +13,7 @@
         <p>Your recharge has been completed successfully.</p>
         <p>Thank you for using our service!</p>
         <button onclick="downloadSlip()">Download Recharge Slip</button>
-        <a href="index.html" class="btn">Go to Login</a>
+        <a href="index.html?sim=" + encodeURIComponent(urlParams.get('sim')) class="btn">Go to Recharge Page</a>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
@@ -30,7 +30,6 @@
             const doc = new jsPDF();
 
             doc.text("Recharge Slip", 10, 10);
-        
             doc.text(`Mobile: ${mobile}`, 10, 30);
             doc.text(`Email: ${email}`, 10, 40);
             doc.text(`Amount: ${amount}`, 10, 50);

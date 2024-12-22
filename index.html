@@ -18,10 +18,9 @@
       <label for="sim">SIM:</label>
       <select id="sim" name="sim" required>
         <option value="select">select</option>
-        <option value="Jio">Jio</option>
-        <option value="Airtel">Airtel</option>
-        <option value="Vi">Vi</option>
-        <option value="BSNL">BSNL</option>
+        <option value="jio">Jio</option>
+        <option value="airtel">Airtel</option>
+        <option value="vodafone">Vodafone</option>
       </select><br>
       <label for="amount">Amount:</label>
       <input type="number" id="amount" name="amount" required><br>
@@ -36,6 +35,13 @@
         event.preventDefault();
       }
     });
+
+    // Preserve selected SIM option when navigating back
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedSim = urlParams.get('sim');
+    if (selectedSim) {
+      document.getElementById('sim').value = selectedSim;
+    }
   </script>
 </body>
 </html>
